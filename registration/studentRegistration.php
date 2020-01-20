@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -39,14 +39,35 @@
             <label for="clg"><b>College Name</b></label><br><br>
             <input type="text" placeholder="Enter College Name" name="clg" required><br>
         </div>
-        
-        <button type="submit" class="registerbtn">Register</button>
-       
-       <div class="container signin">
-        <p>Already have an account? <a href="#">Sign in</a>.</p>
+        <div>
+             <input type="submit" value='Register'> 
+       </div>
+       <div class="signin">
+        <p>Already have an account? <a href="#">Sign in</a></p>
+
       </div>
 </div>
        </form>
-
+<?php
+if(isset($_REQUEST['password']))
+{
+   $name=$_REQUEST['name'];
+   $email=$_REQUEST['email'];
+   $password=$_REQUEST['password'];
+   $phone=$_REQUEST['phone'];
+   $git=$_REQUEST['git'];
+   $college=$_REQUEST['college'];
+   $username='S@'.$phone; 
+   $con=mysqli_connect('localhost','root','','evento');
+   $query="insert into student values (null,'$name','$username','$password',$phone,'$email','$git','$college')";
+   $res=mysqli_query($con,$query);
+   if($res){
+       echo "Your details are updated succesfully";
+   }
+   else{
+       echo"updataion unsuccessfull";
+   }
+}
+?>
 </body>
 </html>
