@@ -23,33 +23,47 @@ else{
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <form action="addevent.php" method="post">
-        <h1>Event Details</h1>
-
-        <label><b>Event Title</b></label>
-        <input type="text" placeholder="" name = "title" required>
-        <br>
-        <label><b>Description:-</b></label><br>
-        <textarea name="description" rows="10" cols="30" placeholder="about 300 words"></textarea>
-        <br>
-        <label><b>Event Duration</b></label>
-        <input type="text"  placeholder="" name = "duration" required>
-        <br>
-        <label><b>Date of Event</b></label>
-        <input type="date" placeholder="" name = "date" required>
-        <br>
-        <label><b>Catergory</b></label>
-        <select name = "select">
-            <option selected>Add</option>
-            <option >Workshop</option>
-            <option >Club Events</option>
-            <option >Hackathon</option>
-        </select>
-        <br>
-        <input type="submit" placeholder="Add Event" name = "add">
-    </form>
-
-    <?php
+    <div class= "form">
+        <form action="addevent.php" method="post">
+            <h1>Event Details</h1>
+            <div class="title">
+                <label><b>Event Title:-</b></label>
+                <input type="text" placeholder="Enter Here..." name="title" required>
+            </div>
+            <br>
+            <div class="des">
+                <label><b>Description:-</b></label><br>
+                <textarea name="description" rows="10" cols="30" placeholder="about 300 words"></textarea>
+        
+            </div>
+            <br>
+            <div class="dura">
+                <label><b>Event Duration:-</b></label>
+                <input type="text" placeholder="Enter Here..." name="duration" required>
+            </div>
+            <br>
+            <div class="date">
+                <label><b>Date of Event:-</b></label>
+                <input type="date" placeholder="" name="date" required>
+            </div>
+            <br>
+            <div class="cat">
+                <label><b>Catergory:-</b></label>
+                <select name="select">
+                    <option selected>Add..</option>
+                    <option>Workshop</option>
+                    <option>Club Events</option>
+                    <option>Hackathon</option>
+                </select>
+            </div>
+            <br>
+            <div class="submit">
+                <input type="submit" value="Add Event" name="add">
+                <input type="button" value="Cancel">
+            </div>
+        </form>
+    </div>
+<?php
 
 if(isset($_REQUEST['add']))
 {
