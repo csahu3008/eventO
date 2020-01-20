@@ -8,52 +8,36 @@
     <link rel="stylesheet" href="./css/style2.css">
 </head>
 <body>
-<style type="text/css">
-	
-    #form_login {
-        border:none;
-        left: 50%;
-        top: 50%;
-        margin-left: -10%;
-        position: absolute;
-        margin-top: -15%;
-        width:
-    
-    }
-    
-        </style>
+
    <form action="" method="POST" id="form_login">
      <div class="container">    
            <h1>Student Registration</h1>
            <hr>
            <div>
                <label for="name"><b>Name</b></label><br><br>
-               <input type="text" placeholder="Enter Name" name="name" required>
+               <input type="text" placeholder="Enter Name" name="name" required><br>
            </div>
            <div>
-
-            <label for="email"><b>Email</b></label>
-            <input type="email" placeholder="Enter Valid Email Id" name="email" required>
-        </div>
+            <label for="email"><b>Email</b></label><br><br>
+            <input type="email" placeholder="Enter  Valid Email Id" name="email" required><br>
+           </div>
         <div>
-            <label for="password"><b>Password</b></label>
-            <input type="password" placeholder="Enter password" name="password" required>
-
+            <label for="psw"><b>Password</b></label><br><br>
+            <input type="password" placeholder="Enter password" name="psw" required><br>
             
         </div>
         <div>
             <label for="phone"><b>Contact Number</b></label><br><br>
-            <input type="tel" name="phone" placeholder=" Enter Mobile Number " pattern="[0-9]{10}" required>
+            <input type="tel" name="phone" placeholder=" Enter Mobile Number " pattern="[0-9]{10}" required><br>
         </div>
         <div>
             <label for="git"><b>Github Id</b></label><br><br>
-            <input type="text" placeholder="Enter github Id" name="git" >
+            <input type="text" placeholder="Enter github Id" name="git" ><br>
         </div>
 
         <div>
-
-            <label for="clg"><b>College Name</b></label>
-            <input type="text" placeholder="Enter College Name" name="college" required>
+            <label for="clg"><b>College Name</b></label><br><br>
+            <input type="text" placeholder="Enter College Name" name="clg" required><br>
         </div>
         <div>
              <input type="submit" value='Register'> 
