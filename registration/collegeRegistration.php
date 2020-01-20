@@ -44,12 +44,11 @@ if(isset($_REQUEST['password']))
    $address=$_REQUEST['college_address'];
    $university=$_REQUEST['university_name'];
    $phone=$_REQUEST['phone'];
-   $password=$_REQUEST['password'];
+   $password=md5($_REQUEST['password']);
    $username='C@'.$phone; 
    $con=mysqli_connect('localhost','root','','evento');
    $query="insert into college values (null,'$name','$address','$username','$phone','$password','$university')";
    $res=mysqli_query($con,$query);
-   echo"'$name' '$address' '$username' '$phone' '$password , $university";
    if($res){
        echo "Your details are updated succesfully";
    }

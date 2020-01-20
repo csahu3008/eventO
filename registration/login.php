@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,76 +11,39 @@
     <form action="login.php" class="form" method="post">
         <h1>LOGIN</h1>
         <input type="text" placeholder="Username" name = "username">
-        <input type="password" placeholder="Password" name = "pass">
+        <input type="password" placeholder="Password" name = "password">
         <input type="submit" placeholder="LOGIN" name = "submit">
     </form>
 </body>
 </html>
 
 <?php
-
-        session_start();
-            if(isset($_SESSION['user']))
-            {
-                $current_usr = $_SESSION['user'];
-                if($current_usr[0] == 'C')
-                    echo " <script>window.location = ''</script>";
-                if($current_usr[0] == 'S')
-                    echo " <script>window.location = ''</script>";
-            }
-        session_abort();
-
-        $con = mysqli_connect('localhost' , 'root' , '' , 'evento');
-
+       session_start();
+       $con = mysqli_connect('localhost' , 'root' , '' , 'evento');
         if(isset($_REQUEST['submit']))
         {
             $c=0;
-            $usrname = $_REQUEST['username'];
-            $pass = $_REQUEST['pass'];
+            $username = $_REQUEST['username'];
+            $password = $_REQUEST['password'];
             
-            if($usrname[0] == 'C')
+            if($username[0] == 'C')
             {
-                // create query
-                echo "<script>alert('hii')</script>";
-                $query = "SELECT * FROM college where username='$usrname'";
+                $query = "SELECT * FROM college where username='$username'";
             }
-            if($usrname[0] == 'S')
+            else if($username[0] == 'S')
             {
-                echo "<script>alert('hiei')</script>";
-                $query = "SELECT * FROM student WHERE username='$usrname'";
+                $query = "SELECT * FROM student WHERE username='$username'";
             }
-            else{
-                echo "<script>alert('Usr Error');</script>";
-            }
+            
             $result = mysqli_query($con,$query);
 
             while($row = mysqli_fetch_array($result))
             {
-                if($row['password'] == $pass)
+                if($row['password'] == md5($password))
                 {
-                    $c++;
+                     $_SESSION['user']=$username;
+                    echo"<h1>Logged in successfully</h1>";
                 }
-
-                if($c == 1)
-                {
-                    session_start();
-                    $_SESSION['user'] = $usrname;
-                    if($usrname[0] == 'C')
-                    {
-                        echo "<script>  alert('jj1') </script>";
-                    }
-                    if($usrname[0] == 'S')
-                    {
-                        echo "<script>  alert('jj') </script>";
-                    }
-                }
-                else{
-                    echo "<script> alert('Invalid Username or Password'); </script>";
-                }
+              }
             }
-
-        }
-
-
-
 ?>

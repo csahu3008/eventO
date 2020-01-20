@@ -69,7 +69,7 @@ if(isset($_REQUEST['password']))
 {
    $name=$_REQUEST['name'];
    $email=$_REQUEST['email'];
-   $password=$_REQUEST['password'];
+   $password=md5($_REQUEST['password']);
    $phone=$_REQUEST['phone'];
    $git=$_REQUEST['git'];
    $college=$_REQUEST['college'];
