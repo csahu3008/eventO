@@ -1,49 +1,136 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./css/style.css">
-    <title>login</title>
-</head>
-<body>
-    <form action="login.php" class="form" method="post">
-        <h1>LOGIN</h1>
-        <input type="text" placeholder="      Username " name = "username">
-        <input type="password" placeholder="      Password  " name = "password">
-        <input type="submit" placeholder="LOGIN" name ="submit">
-    </form>
-</body>
-</html>
-
 <?php
-       session_start();
-       $con = mysqli_connect('localhost' , 'root' , '' , 'evento');
+        session_start();
+        $con = mysqli_connect('localhost' , 'root' , '' , 'evento');
         if(isset($_REQUEST['submit']))
         {
             $c=0;
-            $username = $_REQUEST['username'];
-            $password = $_REQUEST['password'];
+            $usrname = $_REQUEST['username'];
+            $pass = $_REQUEST['pass'];
+
             
-            if($username[0] == 'C')
+            if($usrname[0] == 'C')
             {
-                $query = "SELECT * FROM college where username='$username'";
+                $query = "SELECT * FROM college where username='$usrname'";
             }
-            else if($username[0] == 'S')
+            else if($usrname[0] == 'S')
             {
-                $query = "SELECT * FROM student WHERE username='$username'";
+                $query = "SELECT * FROM student WHERE username='$usrname'";
             }
             
             $result = mysqli_query($con,$query);
 
             while($row = mysqli_fetch_array($result))
             {
-                if($row['password'] == md5($password))
+                if($row['password'] == $pass)
                 {
-                     $_SESSION['user']=$username;
-                    echo"<h1>Logged in successfully</h1>";
+                     $_SESSION['user']=$usrname;
+                    echo"<script>alert('Logged in successfully');</h1>";
+                }
+                else{
+                    echo "<script>alert('Invalid Password');</script>";
                 }
               }
             }
+
+        
+
+
+
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Event->O Login</title>
+    <link rel = "stylesheet" href = "./css/style.css">
+</head>
+<body>
+    <header>
+        <h2>Demo</h2>
+            <!-- <nav>
+                <ul>
+                    <li><a href = "login.php">Login</a></li>
+                    <li><a href="studentRegistration.php">Register As A Student</a></li>    
+                </ul> -->
+            </nav>
+    </header>
+    <div class = "header">
+    <!-- <img src="https://t4.ftcdn.net/jpg/02/90/08/85/240_F_290088578_ECTrjVcG4lZS3kdIBqBamIu0l7Z9Tx4Y.jpg" alt="image" class= "bckgrd"> -->
+
+        <p class = "login">LogIn</p>
+        <hr>
+        <form method = "POST" class = 'form' onsubmit = 'return checklog()' action="login.php">
+            <input type = "text" name = "username" placeholder = "Username" class = "inputbox1" id = "usrname"></br>
+            <input type = "password" name = "pass" placeholder = "Password" class = "inputbox2" id = "pass"></br>
+            <input type="submit" value = "Login" class = "loginbut" name = "submit">
+            <p class = "kreg">Have you <span>Register</span>?</p>
+            <div class="st"><a href="studentRegistration.php" class="red">Register as a Student</a></div>
+            <div class="cl"><a class="red" id = "coll" href = "collegeRegistration.php">Register as a College</a></div>
+        </form>
+    </div>
+    <!-- <footer class="footer"><p>Get Connected</p></footer> -->
+    </div>
+
+    
+   
+</body>
+</html>
+<script>
+
+        function  checkreg()
+        {
+                var  m = document.getElementById("usrname1").value;
+                var p = document.getElementById("pass1").value;
+                if(m.length == 0)
+                {
+                    alert("Enter Something");
+                    return false;
+                }
+                else if(p.length < 8){
+                    alert("Password is too short");
+                    return false;
+                }
+                else{
+                    return true;
+                }
+                
+        }
+
+                    
+        function checklog()
+        {
+                var m = document.getElementById("usrname").value;
+                var p = document.getElementById("pass").value;
+                if(m.length == 0)
+                {
+                    alert("Something Empty");
+                    return false;
+                    
+                }
+                else if(!p)
+                {
+                    alert("Don't you have Password");
+                    return false;
+                }
+                else{
+                    return true;
+                }
+        }
+    </script>
+
+
+
+
+        
+<!-- session_start();
+            if(isset($_SESSION['user']))
+            {
+                $current_usr = $_SESSION['user'];
+                if($current_usr[0] == 'C')
+                    echo " <script>window.location = ''</script>";
+                if($current_usr[0] == 'S')
+                    echo " <script>window.location = ''</script>";
+            }
+        session_abort(); -->
