@@ -44,14 +44,10 @@ header {
     transition: 0.6s ease;
 }
 
-.sub ul li {
-    
-
-}
-
 .nav li a:hover {
     background-color: #fff;
     padding: 10px;
+    border-radius: 12px;
     color: black;
 }
 
