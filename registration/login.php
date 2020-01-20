@@ -1,70 +1,3 @@
-<?php include '../libraries/Database.php'; ?>
-<?php
-        $db = new Database();
-
-
-        session_start();
-            if(isset($_SESSION['user']))
-            {
-                $current_usr = $_SESSION['user'];
-                if($current_usr[0] == 'C')
-                    echo " <script>window.location = ''</script>";
-                if($current_usr[0] == 'S')
-                    echo " <script>window.location = ''</script>";
-            }
-        session_abort();
-
-
-        if(isset($_REQUEST['submit']))
-        {
-            $c=0;
-            $usrname = $_REQUEST['username'];
-            $pass = $_REQUEST['pass'];
-            
-            if($usrname[0] == 'C')
-            {
-                // create query
-                $query = "SELECT * FROM college where username='$usrname'";
-            }
-            if($usrname[0] == 'S')
-            {
-                $query = "SELECT * FROM student WHERE username='$usrname'";
-            }
-            else{
-                echo "<script>alert('Usr Error');</script>";
-            }
-            $log = $db->select($query);
-
-            while($row = $log->fetch_assoc())
-            {
-                if($row['password'] == $pass)
-                {
-                    $c++;
-                }
-
-                if($c == 1)
-                {
-                    session_start();
-                    $_SESSION['user'] = $usrname;
-                    if($usrname[0] == 'C')
-                    {
-                        echo "<script>  windows.location = ' ' </script>";
-                    }
-                    if($usrname[0] == 'S')
-                    {
-                        echo "<script>  windows.location = ' ' </script>";
-                    }
-                }
-                else{
-                    echo "<script> alert('Invalid Username or Password'); </script>";
-                }
-            }
-
-        }
-
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,8 +11,39 @@
     <form action="login.php" class="form" method="post">
         <h1>LOGIN</h1>
         <input type="text" placeholder="Username" name = "username">
-        <input type="password" placeholder="Password" name = "pass">
+        <input type="password" placeholder="Password" name = "password">
         <input type="submit" placeholder="LOGIN" name = "submit">
     </form>
 </body>
 </html>
+
+<?php
+       session_start();
+       $con = mysqli_connect('localhost' , 'root' , '' , 'evento');
+        if(isset($_REQUEST['submit']))
+        {
+            $c=0;
+            $username = $_REQUEST['username'];
+            $password = $_REQUEST['password'];
+            
+            if($username[0] == 'C')
+            {
+                $query = "SELECT * FROM college where username='$username'";
+            }
+            else if($username[0] == 'S')
+            {
+                $query = "SELECT * FROM student WHERE username='$username'";
+            }
+            
+            $result = mysqli_query($con,$query);
+
+            while($row = mysqli_fetch_array($result))
+            {
+                if($row['password'] == md5($password))
+                {
+                     $_SESSION['user']=$username;
+                    echo"<h1>Logged in successfully</h1>";
+                }
+              }
+            }
+?>
