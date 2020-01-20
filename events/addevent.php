@@ -63,11 +63,11 @@ if(isset($_REQUEST['add']))
     $rs = mysqli_query($con,$query);
     if($rs)
     {
-         echo"<script>console.log("data Updated successfully")</script>";
+      //   echo"<script>console.log("data Updated successfully")</script>";
     }
     else
     {
-        echo"<script>console.log("data Updation failed ")</script>";
+       // echo"<script>console.log('data Updation failed')</script>";
     }
 }
 ?>
