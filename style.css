@@ -18,8 +18,8 @@ header {
 
 .logo img{
     float: left;
-    width: 120px;
-    height: auto;
+    width: 150px;
+    height: 50px;
 }
 
 .nav {
@@ -51,22 +51,8 @@ header {
 
 .nav li a:hover {
     background-color: #fff;
+    padding: 10px;
     color: black;
-}
-
-.sub{
-    display: none;
-}
-
-.nav li:hover .sub{
-    display: block;
-    position: absolute;
-}
-
-.nav li .sub ul {
-    display: block;
-    margin: -5px;
-    padding: 20px;
 }
 
 .detail {
