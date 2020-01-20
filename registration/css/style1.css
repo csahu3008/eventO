@@ -29,10 +29,10 @@ input[type=password] {
   transition: 0.25s;
 }
 
-input[type=text]:focus,
-input[type=password]:focus {
-    background-color: #ddd;
-    outline: none;
+input[type=text]:hover,
+input[type=password]:hover {
+     width: 280px;
+  border-color: #2ecc71;
 }
 
 hr {
