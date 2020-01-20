@@ -1,8 +1,14 @@
 <?php
 session_start();
 if(isset($_SESSION['user']))
-{
-
+{   echo"$_SESSION[user]";
+    $con=mysqli_connect('localhost','root','','evento');
+    $query="select * from student where username= '$_SESSION[user]' ";
+    $res=mysqli_query($con,$query);
+    while($row=mysqli_fetch_array($res)){
+        $emailUser=$row['email'];
+        echo "$emailUser";
+    }
 }
 else{
     echo"<script>window.location='../registration/login.php'</script>";
@@ -63,11 +69,40 @@ if(isset($_REQUEST['add']))
     $rs = mysqli_query($con,$query);
     if($rs)
     {
-         echo"<script>console.log("data Updated successfully")</script>";
+        
+         echo"<script>alert('event Added successfully')</script>";
+         $email=require("../sendgrid-php/sendgrid-php.php");
+         $email = new \SendGrid\Mail\Mail(); 
+         $email->setFrom("EventO@gm.com", "Admin@evento.com");
+         $email->setSubject("latest events");
+         $email->addTo($emailUser, "Dear Student");
+         $email->addContent("text/plain", "and easy to do anywhere, even with PHP");
+         $query = "SELECT * FROM events ORDER BY id DESC LIMIT 1;";
+         $rs = mysqli_query($con,$query);
+         if($rs){
+             $msg='these is newly added event';
+             while($row=mysqli_fetch_array($rs)){
+             $msg=$msg."<div><b>$row[title]</b><b>$row[category]</b></div>";
+         }}
+         else{
+         $msg="<strong><p style='color:green;'>Sorry , the events could not be displayed</p><p>Thanks for using Our service .</p></strong>";
+          
+         }
+         $email->addContent(
+             "text/html",$msg
+         );
+         $sendgrid = new \SendGrid('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');
+         try {
+             $response = $sendgrid->send($email);
+             echo"<script>setTimeout(alert('hello world'),4000);</script>"; 
+         }
+        catch (Exception $e) {
+             echo 'Caught exception: '. $e->getMessage() ."\n";
+         }
     }
     else
     {
-        echo"<script>console.log("data Updation failed ")</script>";
+        echo"<script>alert('Event cannot be Added')</script>";
     }
 }
 ?>

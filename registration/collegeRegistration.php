@@ -28,7 +28,6 @@
 
             <label for="psw-repeat"><b>Re-Enter Password</b></label>
             <input type="password" placeholder="Repeat Password" name="password-repeat" required>
-            \
              <button type="submit" class="registerbtn">Register</button>
         </div>
 
