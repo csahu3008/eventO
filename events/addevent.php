@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
 session_start();
 if(isset($_SESSION['user']))
 {
@@ -7,7 +7,7 @@ if(isset($_SESSION['user']))
 else{
     echo"<script>window.location='../registration/login.php'</script>";
 }
-?> -->
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,12 +52,12 @@ else{
             </div>
             <br>
             <div class="submit">
-                <input type="submit" placeholder="Add Event" name="add">
+                <input type="submit" value="Add Event" name="add">
+                <input type="button" value="Cancel">
             </div>
         </form>
     </div>
-
-    <!-- <?php
+<?php
 
 if(isset($_REQUEST['add']))
 {
@@ -84,7 +84,7 @@ if(isset($_REQUEST['add']))
        // echo"<script>console.log('data Updation failed')</script>";
     }
 }
-?> -->
+?>
 
 </body>
 </html>
