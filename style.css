@@ -5,7 +5,7 @@
 }
 
 header {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(../img/bgpic.jpg);
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url(./img/bgpic.jpg);
     height : 100vh;
     background-size: cover;
     background-position: center;
@@ -18,8 +18,8 @@ header {
 
 .logo img{
     float: left;
-    width: 120px;
-    height: auto;
+    width: 150px;
+    height: 50px;
 }
 
 .nav {
@@ -46,22 +46,9 @@ header {
 
 .nav li a:hover {
     background-color: #fff;
+    padding: 10px;
+    border-radius: 12px;
     color: black;
-}
-
-.sub{
-    display: none;
-}
-
-.nav li:hover .sub {
-    display: block;
-    position: absolute;
-}
-
-.nav li .sub ul {
-    display: block;
-    margin: -5px;
-
 }
 
 .detail {
