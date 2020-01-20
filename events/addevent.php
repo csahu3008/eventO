@@ -1,36 +1,12 @@
-
 <?php
+session_start();
+if(isset($_SESSION['user']))
+{
 
-        if(isset($_REQUEST['add']))
-        {
-            $title = $_REQUEST['title'];
-            $description = $_REQUEST['description'];
-            $duration = $_REQUEST['duration'];
-            $date = $_REQUEST['date'];
-            $select = $_REQUEST['select'];
-
-            $con = mysqli_connect('localhost' , 'root' , '' , 'evento'); 
-            echo "<script>alert('d')</script>";
-            if(!$con)
-            {
-                die("Error in connection");
-                exit();
-            }
-            echo "<script>alert('d1')</script>";
-
-            $query = "INSERT INTO events (title, description , category , college_id , event_date,event_duration) VALUES ($title','$description','$select',1, '$date','$duration')";
-            $rs = mysqli_query($con,$query);
-            echo "<script>alert('d3')</script>";
-
-            if($rs)
-            {            echo "<script>alert('d4')</script>";
-
-                echo "<script>alert('Event Added');</script>";
-            }
-            else{
-                echo "<script>alert('Error');</script>";
-            }
-        }
+}
+else{
+    echo"<script>window.location='../registration/login.php'</script>";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,8 +40,38 @@
             <option >Hackathon</option>
         </select>
         <br>
-        <input type="submit" placeholder="ADD" name = "add">
+        <input type="submit" placeholder="Add Event" name = "add">
     </form>
+
+    <?php
+
+if(isset($_REQUEST['add']))
+{
+    $title = $_REQUEST['title'];
+    $description = $_REQUEST['description'];
+    $duration = $_REQUEST['duration'];
+    $dateEvent = $_REQUEST['date'];
+    $select = $_REQUEST['select'];
+    $dateAdded=date("Y-m-d H:i:s");
+    $con = mysqli_connect('localhost' , 'root' , '' , 'evento'); 
+    if(!$con)
+    {
+        die("Error in connection");
+        exit();
+    }
+    $query = "insert into events (title,description,category,college_username,event_date,date_uploaded,event_duration) values ('$title','$description','$select','$_SESSION[user]','$dateEvent','$dateAdded','$duration')";
+    $rs = mysqli_query($con,$query);
+    if($rs)
+    {
+      //   echo"<script>console.log("data Updated successfully")</script>";
+    }
+    else
+    {
+       // echo"<script>console.log('data Updation failed')</script>";
+    }
+}
+?>
+
 </body>
 </html>
 

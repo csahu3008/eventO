@@ -1,56 +1,38 @@
 <?php
-
-
+        session_start();
+        $con = mysqli_connect('localhost' , 'root' , '' , 'evento');
         if(isset($_REQUEST['submit']))
         {
             $c=0;
             $usrname = $_REQUEST['username'];
             $pass = $_REQUEST['pass'];
 
-            $con = mysqli_connect('localhost' , 'root' , '' , 'evento');
             
             if($usrname[0] == 'C')
             {
-                // create query
-                echo "<script>alert('hii')</script>";
                 $query = "SELECT * FROM college where username='$usrname'";
             }
-            if($usrname[0] == 'S')
+            else if($usrname[0] == 'S')
             {
-                echo "<script>alert('hiei')</script>";
                 $query = "SELECT * FROM student WHERE username='$usrname'";
             }
-            else{
-                echo "<script>alert('Usr Error');</script>";
-            }
+            
             $result = mysqli_query($con,$query);
 
             while($row = mysqli_fetch_array($result))
             {
                 if($row['password'] == $pass)
                 {
-                    $c++;
-                }
-
-                if($c == 1)
-                {
-                    session_start();
-                    $_SESSION['user'] = $usrname;
-                    if($usrname[0] == 'C')
-                    {
-                        echo "<script>  alert('jj1') </script>";
-                    }
-                    if($usrname[0] == 'S')
-                    {
-                        echo "<script>  alert('jj') </script>";
-                    }
+                     $_SESSION['user']=$usrname;
+                    echo"<script>alert('Logged in successfully');</h1>";
                 }
                 else{
-                    echo "<script> alert('Invalid Username or Password'); </script>";
+                    echo "<script>alert('Invalid Password');</script>";
                 }
+              }
             }
 
-        }
+        
 
 
 
@@ -79,10 +61,10 @@
 
         <p class = "login">LogIn</p>
         <hr>
-        <form method = "POST" class = 'form' onsubmit = 'return checklog()'>
+        <form method = "POST" class = 'form' onsubmit = 'return checklog()' action="login.php">
             <input type = "text" name = "username" placeholder = "Username" class = "inputbox1" id = "usrname"></br>
             <input type = "password" name = "pass" placeholder = "Password" class = "inputbox2" id = "pass"></br>
-            <input type="submit" value = "Login" class = "loginbut">
+            <input type="submit" value = "Login" class = "loginbut" name = "submit">
             <p class = "kreg">Have you <span>Register</span>?</p>
             <div class="st"><a href="studentRegistration.php" class="red">Register as a Student</a></div>
             <div class="cl"><a class="red" id = "coll" href = "collegeRegistration.php">Register as a College</a></div>
