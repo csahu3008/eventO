@@ -1,18 +1,19 @@
 <?php
 session_start();
-header('Content-Type: application/json');
+// header('Content-Type: application/json');
 
-if(isset($_REQUEST['id']))
+if(isset($_REQUEST['key']))
     {
     $con=mysqli_connect('localhost','root','','evento');
-    $query="insert into applied (student_username,event_id,status) values ('$_SESSION[user]',$_REQUEST[id],1)";
+    $query="insert into applied (student_username,event_id,status) values ('$_SESSION[user]',$_REQUEST[key],1)";
     $res=mysqli_query($con,$query); 
-    session_start();
     if($res){
-    echo"<h1>FGHJKL:KJHG</h1>";
+    echo"Applied Successfully";
+    return true;
     }
     else{
-    echo"<h1>FGHJKL:KJHG</h1>";
+        echo"<script>alert('Error');</script>";
+        return false;
     }
 }
 

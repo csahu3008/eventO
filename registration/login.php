@@ -29,12 +29,8 @@
                 else{
                     echo "<script>alert('Invalid Password');</script>";
                 }
-              }
             }
-
-        
-
-
+        }
 
 ?>
 <!DOCTYPE html>
