@@ -27,7 +27,7 @@
 <img src="../img/logo.png" alt="" class = "img"><br><br><br>
                             <ul>
                                         <li><a href="addevent.php"><i class="fas fa-plus"></i>&nbsp;&nbsp;&nbsp;ADD Events</a></li>
-                                       <li> <a href="login.php"><i class="fas fa-compass"></i>&nbsp;&nbsp;&nbsp;Explore Events</a></li>
+                                       <li> <a href="../dash/studdash.php"><i class="fas fa-compass"></i>&nbsp;&nbsp;&nbsp;Explore Events</a></li>
                                         <li><a href="logout.php" class="prolink"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;&nbsp;Logout</a></li>
                                         <li><a href="appliedevent.php" class="prolink"><i class="fas fa-chevron-circle-left"></i>&nbsp;&nbsp;&nbsp;Go Back</a></li>
                                         

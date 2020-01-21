@@ -120,7 +120,6 @@
             echo"<div><button onclick='participate($row[id])'>Participate Now</button>&nbsp;<button>Description</button></div></div>";
             echo "</div>";
         }
-            </div>
             echo"</div>";
             ?>
             </div>
