@@ -86,34 +86,8 @@ if(isset($_REQUEST['add']))
     {
         
          echo"<script>alert('event Added successfully')</script>";
-         $email=require("../sendgrid-php/sendgrid-php.php");
-         $email = new \SendGrid\Mail\Mail(); 
-         $email->setFrom("EventO@gm.com", "Admin@evento.com");
-         $email->setSubject("latest events");
-         $email->addTo($emailUser, "Dear Student");
-         $email->addContent("text/plain", "and easy to do anywhere, even with PHP");
-         $query = "SELECT * FROM events ORDER BY id DESC LIMIT 1;";
-         $rs = mysqli_query($con,$query);
-         if($rs){
-             $msg='these is newly added event';
-             while($row=mysqli_fetch_array($rs)){
-             $msg=$msg."<div><b>$row[title]</b><b>$row[category]</b></div>";
-         }}
-         else{
-         $msg="<strong><p style='color:green;'>Sorry , the events could not be displayed</p><p>Thanks for using Our service .</p></strong>";
-          
-         }
-         $email->addContent(
-             "text/html",$msg
-         );
-         $sendgrid = new \SendGrid('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');
-         try {
-             $response = $sendgrid->send($email);
-             echo"<script>setTimeout(alert('hello world'),4000);</script>"; 
-         }
-        catch (Exception $e) {
-             echo 'Caught exception: '. $e->getMessage() ."\n";
-         }
+         echo"<script>window.location='appliedevent.php'</script>";
+         
     }
     else
     {

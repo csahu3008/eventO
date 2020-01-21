@@ -66,7 +66,7 @@ if(isset($_REQUEST['password']))
                     <!-- <label for="phone">Phone</label> -->
                     <input type="password" name="password" required id="pwd" placeholder = "Password" class = "c-input">
                     <!-- <label for="city">City</label> -->
-                    <input type="text" name="" required id="city" placeholder = "Renter Password" class= "y-input"><br><br>
+                    <input type="password" name="" required id="city" placeholder = "Renter Password" class= "y-input"><br><br>
 
                   
                     <button type="submit" class = "add-me" name = "submit">Submit</button>
