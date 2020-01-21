@@ -12,7 +12,7 @@ if(isset($_REQUEST['submit']))
    $query="insert into student values (null,'$name','$username','$password',$phone,'$email','$git','$college')";
    $res=mysqli_query($con,$query);
    if($res){
-       echo "<script>alert('Your username is')</script>";
+       echo "<script>alert('Your username is.$username')</script>";
    }
    else{
        echo"updataion unsuccessfull";

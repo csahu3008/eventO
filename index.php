@@ -26,8 +26,7 @@
             </div>
             <ul class="nav">
                 <li><a class="active" href="#">Home</a></li>
-                <li><a href="registration/login.php">Sign In</a></li>
-                <li><a href="registration/collegeRegistration" class="nav1">Sign Up</a></li>
+                <li><a href="reglog/login.php">Sign In</a></li>
             </ul>
         </div>
     </header>
@@ -50,7 +49,7 @@
                             echo  "<p>$row[description]</p>";
                             echo "<button type='submit' >Participate Now</button>";
                         echo "</div>";
-                        if($i>3)
+                        if($i>2)
                         {
                         break;
                         }

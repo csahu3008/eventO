@@ -1,22 +1,35 @@
 * {
     font-family: century Gothic;
-    color: rgb(88, 86, 86);
+    color: #585656;
     outline: none;
+    
 }
-
+body{
+    background: lightseagreen;
+}
 .form {
     position: absolute;
     margin: 200px;
     border: 2px solid;
     border-radius: 12px;
     background-color: aliceblue;
-    padding: 40px;
+    padding: 60px;
     top: 50%;
     left: 50%;
     margin-top: -15%;
-    margin-left: -10%;
+    margin-left: 100px;;
 }
-
+.img{
+    width:500px;
+    height:200px;
+    margin-top: 270px;
+    opacity: 0.8;
+    position: fixed;
+    margin-left:100px;
+    /* border:1px solid green; */
+    /* border-radius: 5px; */
+    box-shadow: 4px 4px 4px 4px;
+}
 .title input{
     color: black;
     border: none;

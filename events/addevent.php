@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="./css/addstyle.css">
 </head>
 <body>
+<img src="../img/logo.png" alt="" class = "img">
     <div class= "form">
         <form action="addevent.php" method="post">
             <h1>Event Details</h1>

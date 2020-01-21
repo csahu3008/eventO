@@ -42,10 +42,13 @@
     }
     .colmn2{
         width:18%;
-        height:40px;
+        height:93vh;;
         float:right;
         padding-top: 100px;
-        /* background:lightseagreen; */
+        position:fixed;
+left:1070px;
+top:50px;
+        background:lightseagreen;
       
     }
     .events{
@@ -116,11 +119,11 @@
 <body>
         <div class="nav">
             <p><img src="./img/logo.png" alt="evento"></p>
-            <div class="logout"><p><a href = "logout.php">Logout</a>&nbsp;<i class="fas fa-sign-out-alt"></i></p></div>
+            <div class="logout"><p><a href = "../events/logout.php">Logout</a>&nbsp;<i class="fas fa-sign-out-alt"></i></p></div>
         </div>
         <div>
             <div class='row'>
-            <div class='colmn1'>
+            <div class='colmn1'><br><br>
            <h2 style='text-align: center;'>Upcoming Events</h2>
            <?php 
             $con=mysqli_connect('localhost','root','','evento');
@@ -140,7 +143,12 @@
             ?>
             </div>
             <div class='colmn2'>
-                <div class='b'><button class='btn btn-primary ' href="#">Categories</button></div>
+                <div class='b'><a href="studdash.php"><button class='btn btn-primary ' href="">Categories</button></a></div>
+                <ul>
+                    <li>Workshop</li>
+                    <li>Hackathon</li>
+                    <li>Seminar</li>
+                </ul>
                 <div class='b'><button class='btn btn-primary  participated' >MY participations</button></div>
             </div>
             </div>

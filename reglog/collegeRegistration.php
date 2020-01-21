@@ -7,14 +7,14 @@ if(isset($_REQUEST['password']))
    $address=$_REQUEST['college_address'];
    $university=$_REQUEST['university_name'];
    $phone=$_REQUEST['phone'];
-   $password=$_REQUEST['password'];
+   $password=md5($_REQUEST['password']);
    $username='C@'.$phone; 
    $con=mysqli_connect('localhost','root','','evento');
    $query="insert into college values (null,'$name','$address','$username','$phone','$password','$university')";
    $res=mysqli_query($con,$query);
    
    if($res){
-       echo "<script>alert('Your are succesfully register')</script>";
+       echo "<script>alert('Your are succesfully register and your user name is.$username')</script>";
    }
    else{
        echo"</script>alert('Registration unsuccessfull')</script>";

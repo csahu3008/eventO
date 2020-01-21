@@ -3,7 +3,7 @@
     $online = $_SESSION['user'];
 
     echo "<div class = 'coverlogout'><p>Logout Successfully</p></div>";
-            echo"<script>setTimeout(function(){window.location = 'login.php';},2000)</script>";
+            echo"<script>setTimeout(function(){window.location = '../index.php';})</script>";
 
     session_destroy();
 ?>

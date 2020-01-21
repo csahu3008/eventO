@@ -4,8 +4,11 @@
 }
 .nav{
     width: 100%;
+    position: fixed;
     height:60px;
+    top:0px;
     background: lightseagreen;
+    box-shadow: 2px 2px 2px 2px;
     /* padding: 10px; */
 }
 .nav p{
@@ -21,4 +24,9 @@
 .logout p a{
     color: white;
     text-decoration: none;
+}
+.colmn2 ul li{
+    list-style-type: square;
+    color: black;
+    margin-left:100px;
 }

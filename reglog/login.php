@@ -5,7 +5,7 @@
         {
             $c=0;
             $usrname = $_REQUEST['username'];
-            $pass = $_REQUEST['pass'];
+            $pass = md5($_REQUEST['pass']);
 
             
             if($usrname[0] == 'C')
@@ -54,7 +54,7 @@
     <img src="../img/logo.png" alt="" class = "img">
             <nav>
                 <ul>
-                    <li><a href = "../index.html" class="home">Home</a></li>
+                    <li><a href = "../index.php" class="home">Home</a></li>
                 </ul>
             </nav>
     </header>
