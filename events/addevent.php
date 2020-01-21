@@ -1,18 +1,18 @@
 <?php
-session_start();
-if(isset($_SESSION['user']))
-{   echo"$_SESSION[user]";
-    $con=mysqli_connect('localhost','root','','evento');
-    $query="select * from student where username= '$_SESSION[user]' ";
-    $res=mysqli_query($con,$query);
-    while($row=mysqli_fetch_array($res)){
-        $emailUser=$row['email'];
-        echo "$emailUser";
+    session_start();
+    if(isset($_SESSION['user']))
+    {   echo"$_SESSION[user]";
+       $con=mysqli_connect('localhost','root','','evento');
+       $query="select * from student where username= '$_SESSION[user]' ";
+       $res=mysqli_query($con,$query);
+       while($row=mysqli_fetch_array($res)){
+           $emailUser=$row['email'];
+           echo "$emailUser";
+       }
     }
-}
-else{
-    echo"<script>window.location='../registration/login.php'</script>";
-}
+    else{
+       echo"<script>window.location='../registration/login.php'</script>";
+ }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +20,7 @@ else{
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/addstyle.css">
 </head>
 <body>
     <div class= "form">
