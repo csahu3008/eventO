@@ -36,14 +36,16 @@
     .box{
         width:auto;
         height:auto;
+        margin-top:10px;
         border:2px solid black;
         margin-left: 30px;;
     }
     .colmn2{
         width:18%;
-        height:400px;
+        height:40px;
         float:right;
         padding-top: 100px;
+        /* background:lightseagreen; */
       
     }
     .events{
@@ -55,6 +57,7 @@
     .elements{
         padding:15px;
         margin-left:3px;
+        padding-top:40px;
     }
     .elements:hover{
         color:red;
@@ -98,8 +101,17 @@
                 }
 
             })
-        })   
+        })
+
+      
     });
+    participate=(id)=>{
+      console.log(id);
+      var get = id;
+    $.post('../events/eventParticipate.php',{key:get},function(data){
+        alert(data);
+    })
+  }
     </script>
 <body>
         <div class="nav">
@@ -130,7 +142,6 @@
             <div class='colmn2'>
                 <div class='b'><button class='btn btn-primary ' href="#">Categories</button></div>
                 <div class='b'><button class='btn btn-primary  participated' >MY participations</button></div>
-                <div class='b'><button class='btn btn-primary ' href="#">update Categories</button></div>
             </div>
             </div>
         </div>

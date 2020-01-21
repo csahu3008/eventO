@@ -12,9 +12,13 @@
     padding: 10px;
     margin-left: 50px;
 }
-.logout{
-    text-align: right;
-    margin-right:60px;
-    margin-top: -50px;
-
+.logout p{
+    margin-left:950px;
+    font-size: 22px;
+    color:white;
+    font-weight: bold;
+}
+.logout p a{
+    color: white;
+    text-decoration: none;
 }

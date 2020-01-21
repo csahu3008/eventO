@@ -1,13 +1,13 @@
 <?php
     session_start();
     if(isset($_SESSION['user']))
-    {   echo"$_SESSION[user]";
+    {   
        $con=mysqli_connect('localhost','root','','evento');
        $query="select * from student where username= '$_SESSION[user]' ";
        $res=mysqli_query($con,$query);
        while($row=mysqli_fetch_array($res)){
            $emailUser=$row['email'];
-           echo "$emailUser";
+        
        }
     }
     else{
@@ -59,7 +59,7 @@
             <br>
             <div class="submit">
                 <input type="submit" value="Add Event" name="add">
-                <input type="button" value="Cancel">
+               <a href="appliedevent.php"> <input type="button" value="Cancel"></a>
             </div>
         </form>
     </div>
