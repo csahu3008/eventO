@@ -23,8 +23,15 @@
             {
                 if($row['password'] == $pass)
                 {
-                     $_SESSION['user']=$usrname;
-                    echo"<script>alert('Logged in successfully');</h1>";
+                     $c++;
+                }
+                if($c==1)
+                {
+                    $_SESSION['user']=$usrname;
+                     if($usrname[0] == 'C')
+                            echo"<script>window.location='../events/appliedevent.php';</script>";
+                     if($usrname[0] == 'S')
+                            echo"<script>window.location='../dash/studdash.php';</script>";
                 }
                 else{
                     echo "<script>alert('Invalid Password');</script>";
@@ -44,7 +51,7 @@
 </head>
 <body>
     <header>
-        <h2>Demo</h2>
+    <img src="../img/logo.png" alt="" class = "img">
             <!-- <nav>
                 <ul>
                     <li><a href = "login.php">Login</a></li>
@@ -67,7 +74,7 @@
         </form>
     </div>
     <!-- <footer class="footer"><p>Get Connected</p></footer> -->
-    </div>
+   
 
     
    
