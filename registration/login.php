@@ -52,13 +52,13 @@
 <body>
     <header>
     <img src="../img/logo.png" alt="" class = "img">
-            <!-- <nav>
+            <nav>
                 <ul>
-                    <li><a href = "login.php">Login</a></li>
-                    <li><a href="studentRegistration.php">Register As A Student</a></li>    
-                </ul> -->
+                    <li><a href = "../index.html" class="home">Home</a></li>
+                </ul>
             </nav>
     </header>
+    <img src="../img/logo.png" alt="" class = "imgbig">
     <div class = "header">
     <!-- <img src="https://t4.ftcdn.net/jpg/02/90/08/85/240_F_290088578_ECTrjVcG4lZS3kdIBqBamIu0l7Z9Tx4Y.jpg" alt="image" class= "bckgrd"> -->
 

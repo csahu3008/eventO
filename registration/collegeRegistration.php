@@ -42,11 +42,11 @@ if(isset($_REQUEST['password']))
 </head>
 <body>
     <header>
-        <h2>Demo</h2>
+    <img src="../img/logo.png" alt="" class = "img">
             <nav>
                 <ul>
-                    <li><a href = "login.php">Login</a></li>
-                    <li><a href="studentRegistration.php">Register As A Student</a></li>    
+                    <li><a href = "login.php" class="log">Login</a></li>
+                    <li><a href="studentRegistration.php" class="coll">Register As A Student</a></li>    
                 </ul>
             </nav>
     </header>

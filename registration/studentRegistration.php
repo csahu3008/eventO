@@ -31,11 +31,11 @@ if(isset($_REQUEST['submit']))
 <body>
 
     <header>
-        <h2>#</h2>
+    <img src="../img/logo.png" alt="" class = "img">
         <nav>
             <ul>
-                <li><a href = "login.php">Login</a></li>
-                <li><a href="collegeRegistration.php">Register As A College</a></li>    
+                <li><a href = "login.php" class="log">Login</a></li>
+                <li><a href="collegeRegistration.php" class="coll">Register As A College</a></li>    
             </ul>
         </nav>
     </header>

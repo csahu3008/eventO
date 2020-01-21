@@ -118,6 +118,7 @@ header{
     height:80px;
     width: 100%;
     box-shadow: 2px 0px 5px;
+    background: crimson;
 }
 header h2{
     
@@ -138,14 +139,12 @@ header>nav>ul>li{
    
 }
 li{
-    padding:0.5em 1em;
+    padding:0.2em 0.5em;
     cursor: pointer;
     transition: 0.5s;
 }
-li:hover , li>a:hover{
-    font-size:16px;
-    background-color: #3549fa;
-    color:#fff; 
+ li>a:hover{
+    border-bottom: white 3px solid;
 }
 section{
     width:100%;
@@ -155,6 +154,24 @@ section{
     background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     /* background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%); */
     /* background: yellow; */
+}
+.log{
+    margin-right: 90px;
+    font-size: 25px;
+    color:white;
+    font-weight: bold
+}
+.coll{
+    margin-right: 60px;
+    font-size: 25px;
+    color:white;
+    font-weight: bold
+}
+.img{
+    padding: 10px;
+    margin-left: 50px;
+    width:140px;
+    height:60px;
 }
 .who-div{
     width:32.7%;
