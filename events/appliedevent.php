@@ -63,6 +63,10 @@
         <?php endwhile; ?>
     </table>
     <img src="../img/logo.png" alt="" class = "imgbig">  
+</div>
+<div class="about">
+        <p class="ab">Welcome <?php echo $ses; ?></p>
+    </div>
     <aside class="aside">
         <p class="categories">Categories</p>
             <ol>

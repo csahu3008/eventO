@@ -12,9 +12,10 @@
     <link rel = "stylesheet" href = "../events/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="dashstyle.css">
     <title>EV<-NT(O) Student Dashboard</title>
-    <link href="../bulma-0.8.0/css/bulma.min.css" rel='stylesheet'>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 <style>
     .events{
         font-family: 'Roboto', sans-serif;
@@ -24,11 +25,12 @@
         width:100%;
         height:400px;
     }
-    .col-1{
-        width:80%;
+    .colmn1{
+        width:75%;
         min-height:400px;
         float:left;
-       border:1px solid red;
+        margin-left:5%;
+    
 
     }
     .box{
@@ -37,12 +39,12 @@
         border:2px solid black;
         margin-left: 30px;;
     }
-    .col-2{
+    .colmn2{
         width:18%;
         height:400px;
         float:right;
         padding-top: 100px;
-        border:1px solid green;
+      
     }
     .events{
         display:flex;
@@ -89,7 +91,7 @@
                 method:'get',
                 data:{},
                 success:function(data){
-                       $('.col-1').html(data);
+                       $('.colmn1').hide(500).html(data).show(500);
                 },
                 failure:function(xhr){
                       console.log(xhr.status);
@@ -106,9 +108,8 @@
         </div>
         <div>
             <div class='row'>
-            <div class='col-1'>
-            <div>
-           <h1>Upcoming Events</h1>
+            <div class='colmn1'>
+           <h2 style='text-align: center;'>Upcoming Events</h2>
            <?php 
             $con=mysqli_connect('localhost','root','','evento');
             $query="select * from events";
@@ -117,16 +118,19 @@
             while($row=mysqli_fetch_array($res)){
             echo "<div class='box'>";
             echo"<div class='elements' style='text-align: center;'><div><h4>$row[title]<h4></div><p>$row[description]<span>$row[category]</span></p></tr>";
-            echo"<div><button onclick='participate($row[id])'>Participate Now</button>&nbsp;<button>Description</button></div></div>";
-            echo "</div>";
+            echo"<div><button class='btn btn-success' onclick='participate($row[id])'>Participate Now</button>&nbsp;";
+
+           echo"<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#myModal'>Get More Details</button><div class='modal fade' id='myModal'><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><h4 class='modal-title'>$row[title]</h4><button type='button' class='close' data-dismiss='modal'>&times;</button></div><div class='modal-body'>$row[description]<div>Category:$row[category]</div><div>event_date:$row[event_date]</div></div><div class='modal-footer'><button type='button' class='btn btn-danger' data-dismiss='modal'>Close</button> </div></div></div></div>";
+    
+           echo "</div></div></div>";
         }
             echo"</div>";
             ?>
             </div>
-            <div class='col-2'>
-                <div class='b'><button class='button is-danger ' href="#">Categories</button></div>
-                <div class='b'><button class='button is-danger participated ' >MY participations</button></div>
-                <div class='b'><button class='button is-danger ' href="#">update Categories</button></div>
+            <div class='colmn2'>
+                <div class='b'><button class='btn btn-primary ' href="#">Categories</button></div>
+                <div class='b'><button class='btn btn-primary  participated' >MY participations</button></div>
+                <div class='b'><button class='btn btn-primary ' href="#">update Categories</button></div>
             </div>
             </div>
         </div>

@@ -15,6 +15,7 @@ header{
     height:80px;
     width: 100%;
     box-shadow: 2px 0px 5px;
+    background: crimson;
 }
 header h2{
     
@@ -35,14 +36,12 @@ header>nav>ul>li{
    
 }
 li{
-    padding:0.5em 1em;
+    padding:0.2em 0.5em;
     cursor: pointer;
     transition: 0.5s;
 }
-li:hover , li>a:hover{
-    font-size:16px;
-    background-color: #3549fa;
-    color:#fff; 
+ li>a:hover{
+    border-bottom: purple 3px solid ;
 }
 
 section{
@@ -152,7 +151,24 @@ section{
   .upload-files:active {
     background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
   }
-
+  .img{
+    padding: 10px;
+    margin-left: 50px;
+    width:150px;
+    height:60px;
+}
+.log{
+    margin-right: 70px;
+    font-size: 25px;
+    color:white;
+    font-weight: bold
+}
+.coll{
+    margin-right: 40px;
+    font-size: 25px;
+    color:white;
+    font-weight: bold
+}
   .add-me{
     width: 250px;
     height:40px;
