@@ -1,3 +1,10 @@
+<?php
+        $con = mysqli_connect('localhost','root','','evento');
+        $q="SELECT*FROM events ORDER BY id DESC";
+        $rs = mysqli_query($con,$q);
+        $i=0;
+        $j=0;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,8 +26,8 @@
             </div>
             <ul class="nav">
                 <li><a class="active" href="#">Home</a></li>
-                <li><a href="#">Sign In</a></li>
-                <li><a href="#" class="nav1">Sign Up</a></li>
+                <li><a href="registration/login.php">Sign In</a></li>
+                <li><a href="registration/collegeRegistration" class="nav1">Sign Up</a></li>
             </ul>
         </div>
     </header>
@@ -33,26 +40,23 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-4">
-                <div class="e1">
-                    <h1>Event Name 1</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                    <button type="submit" >Participate Now</button>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="e2">
-                    <h1>Event Name 2</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                    <button type="submit">Participate Now</button>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="e3">
-                    <h1>Event Name 3</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-                    <button type="submit">Participate Now</button>
-                </div>
+           
+
+                <?php while(($row=mysqli_fetch_assoc($rs))){
+                    $i++;
+                   echo"  <div class='col-sm-4'>";      
+                    echo "<div class='e'.$i>";
+                            echo  "<h1>$row[title]</h1>";
+                            echo  "<p>$row[description]</p>";
+                            echo "<button type='submit' >Participate Now</button>";
+                        echo "</div>";
+                        if($i>3)
+                        {
+                        break;
+                        }
+                       echo" </div>";
+                }
+                ?>
             </div>
         </div>
     </div>
