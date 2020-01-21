@@ -23,18 +23,21 @@
             {
                 if($row['password'] == $pass)
                 {
-                     $_SESSION['user']=$usrname;
-                    echo"<script>alert('Logged in successfully');</h1>";
+                     $c++;
+                }
+                if($c==1)
+                {
+                    $_SESSION['user']=$usrname;
+                     if($usrname[0] == 'C')
+                            echo"<script>window.location='../events/appliedevent.php';</script>";
+                     if($usrname[0] == 'S')
+                            echo"<script>window.location='../dash/studdash.php';</script>";
                 }
                 else{
                     echo "<script>alert('Invalid Password');</script>";
                 }
-              }
             }
-
-        
-
-
+        }
 
 ?>
 <!DOCTYPE html>
@@ -48,14 +51,14 @@
 </head>
 <body>
     <header>
-        <h2>Demo</h2>
-            <!-- <nav>
+    <img src="../img/logo.png" alt="" class = "img">
+            <nav>
                 <ul>
-                    <li><a href = "login.php">Login</a></li>
-                    <li><a href="studentRegistration.php">Register As A Student</a></li>    
-                </ul> -->
+                    <li><a href = "../index.html" class="home">Home</a></li>
+                </ul>
             </nav>
     </header>
+    <img src="../img/logo.png" alt="" class = "imgbig">
     <div class = "header">
     <!-- <img src="https://t4.ftcdn.net/jpg/02/90/08/85/240_F_290088578_ECTrjVcG4lZS3kdIBqBamIu0l7Z9Tx4Y.jpg" alt="image" class= "bckgrd"> -->
 
@@ -71,7 +74,7 @@
         </form>
     </div>
     <!-- <footer class="footer"><p>Get Connected</p></footer> -->
-    </div>
+   
 
     
    

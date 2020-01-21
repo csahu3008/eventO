@@ -1,0 +1,114 @@
+* {
+    font-family: century Gothic;
+    color: rgb(88, 86, 86);
+    outline: none;
+}
+
+.form {
+    position: absolute;
+    margin: 200px;
+    border: 2px solid;
+    border-radius: 12px;
+    background-color: aliceblue;
+    padding: 40px;
+    top: 50%;
+    left: 50%;
+    margin-top: -15%;
+    margin-left: -10%;
+}
+
+.title input{
+    color: black;
+    border: none;
+    border-radius: 15px;
+    width: 200px;
+    height: 30px;
+    margin: 15px;    
+   
+
+}
+
+.dura input {
+    color: black;
+    border: none;
+    border-radius: 15px;
+    width: 200px;
+    height: 30px;
+    margin: 15px; 
+    transition: 0.25s ease;   
+}
+
+.title input:hover {
+    background-color: rgb(221, 214, 214);
+    cursor: pointer;
+    border: 1px solid;
+}
+
+.dura input:hover {
+    background-color: rgb(221, 214, 214);
+    cursor: pointer;
+    border: 1px solid;
+}
+
+.date input {
+    color: black;
+    border: none;
+    border-radius: 15px;
+    width: 200px;
+    height: 30px;
+    margin: 15px; 
+    transition: 0.25s ease; 
+}
+
+.date input:hover {
+    background-color: rgb(241, 239, 239);
+    cursor: pointer;
+    border: 1px solid;
+}
+
+.des textarea {
+    color: black;
+    border: none;
+    border-radius: 15px;
+    width: 200px;
+    height: 150px;
+    margin: 15px; 
+    transition: 0.25s ease; 
+}
+
+.des textarea:hover {
+    background-color: rgb(241, 239, 239);
+    border: 1px solid;
+}
+
+.cat select {
+    color: black;
+    border: none;
+    border-radius: 15px;
+    width: 200px;
+    height: 30px;
+    margin: 15px; 
+    transition: 0.25s ease; 
+}
+
+.cat select:hover {
+    background-color: rgb(241, 239, 239);
+    cursor: pointer;
+    border: 1px solid;
+}
+
+.submit input {
+    color: black;
+    border: none;
+    border-radius: 15px;
+    width: 100px;
+    height: 30px;
+    transition: 0.25s ease; 
+    background-color: bisque;
+}
+
+.submit input:hover {
+    background-color: aquamarine;
+    cursor: pointer;
+    border: 1px solid;
+}

@@ -6,9 +6,10 @@
     }
 ?>
 <?php
-    $id= $_GET['id'];
+        session_start();
+        $ses = $_SESSION['user'];
         $con = mysqli_connect('localhost','root','','evento');
-        $query = "SELECT * FROM events where id=".$id;
+        $query = "SELECT * FROM events ORDER BY id DESC";
         $rs = mysqli_query($con,$query);
 
         //Query from category table
@@ -29,17 +30,18 @@
     <title>My Events</title>
 </head>
 <body>
+    
                     <div class="nav">
-                        <p class="logo">EV<-NT(O)</p>
+                        <img src="../img/logo.png" alt="" class = "img"><br><br><br>
                             <ul>
                                         <li><a href="addevent.php"><i class="fas fa-plus"></i>&nbsp;&nbsp;&nbsp;ADD Events</a></li>
-                                       <li> <a href="login.php"><i class="fas fa-compass"></i>&nbsp;&nbsp;&nbsp;Explore Events</a></li>
+                                       <li> <a href="../dash/studdash.php"><i class="fas fa-compass"></i>&nbsp;&nbsp;&nbsp;Explore Events</a></li>
                                         <li><a href="logout.php" class="prolink"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;&nbsp;Logout</a></li>
                                         
                            </ul> 
                     </div>
                     </div>
-    
+                    
  <div class="section">
  <h1>My Events</h1></br>
     <table class="table">
@@ -60,12 +62,16 @@
             </tr>   
         <?php endwhile; ?>
     </table>
-
+    <img src="../img/logo.png" alt="" class = "imgbig">  
+</div>
+<div class="about">
+        <p class="ab">Welcome <?php echo $ses; ?></p>
+    </div>
     <aside class="aside">
         <p class="categories">Categories</p>
             <ol>
-                <?php while($row = mysqli_fetch_array($rs2)): ?>
-                    <li><a class = "cat" href="appliedevent.php?id=<?php echo $row['id']; ?>"><?php echo $row['name']; ?></a></li>
+                <?php while($rowd = mysqli_fetch_array($rs2)): ?>
+                    <li><a class = "cat" href="appliedevent.php?id=<?php echo $rowd['id']; ?>"><?php echo $rowd['name']; ?></a></li>
                 <?php endwhile; ?>
             </ol>
     </aside>
